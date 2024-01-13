@@ -1,17 +1,16 @@
 <template>
     <div class="card">
       <v-progress-linear color="rie-primary-color" height="6" rounded :indeterminate="loading"></v-progress-linear>
-      <div class="card-header">{{ cardData.title }}</div>
+      <v-card-title bg-color="primary-color" class="card-header">{{ cardData.title }}</v-card-title>
       <div class="card-body">
         <div class="character-dropdown">
-          <v-select bg-color="primary-color" v-model="selectedOption" :items="dropdownOptions" item-title="title" item-value="value" label="Character" class="mr-4"/>
-          <select v-model="selectedOption" @change="changeSelection">
-            <option v-for="option in characterOptions" :key="option.value" :value="option.value">{{ option.title }}</option>
-          </select>
+          <v-select bg-color="primary-color" @change="changeSelection" v-model="selectedOption" :items="cardData.options" item-title="title" item-value="value" :label="cardData.dopdownLabel" class="mr-4"/>
         </div>
-        <img :src="processedImage" alt="Card Image" />
+        <img :src="processedImage" alt="" />
         <p>{{ cardData.text }}</p>
-        <v-btn color="primary-color" @click="generateImage()">Generate Image</v-btn>
+        <template v-if="cardData.generateImageFlag">
+            <v-btn color="primary-color" @click="generateImage">Generate Image</v-btn>
+        </template>
       </div>
     </div>
   </template>
@@ -22,14 +21,13 @@
   
   export default {
     props: {
-      cardData: Object,
-      dropdownOptions: Array // Pass the dropdown options as a prop
+      cardData: Object
     },
     setup(props) {
       // State
       const loading = ref(false);
       const processedImage = ref('');
-      const selectedOption = ref(props.dropdownOptions[0].value);
+      const selectedOption = ref(props.cardData.options[0].value);
   
       // Asynchronous function to process the input and retrieve an image
       const fetchData = async () => {
@@ -75,7 +73,7 @@
         loading,
         processedImage,
         selectedOption,
-        characterOptions: props.dropdownOptions,
+        characterOptions: props.cardData.options,
         generateImage,
         changeSelection
       };
@@ -85,8 +83,8 @@
   
   <style scoped>
   .card {
-    width: 400px;
-    height: 600px;
+    width: 800px;
+    height: 1600px;
     border: 1px solid #ccc;
     margin: 10px;
   }
