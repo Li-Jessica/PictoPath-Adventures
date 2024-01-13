@@ -47,7 +47,12 @@
                     dropdownLabel: 'Select a helpful item for you adventure'
                 },
             ],
-            currentCard: 0
+            currentCard: 0,
+            adventureState: ref({
+                adventureType: null,
+                character: null,
+                item: null
+            })
         };
     },
     methods: {
@@ -56,6 +61,19 @@
         },
         updateAdventureState(selectedOption) {
             console.log('Selected Option in Parent:', selectedOption);
+            // Update the adventureState based on the current card
+            switch (this.currentCard) {
+                case 0:
+                this.adventureState.adventureType = selectedOption;
+                break;
+                case 1:
+                this.adventureState.character = selectedOption;
+                break;
+                case 2:
+                this.adventureState.item = selectedOption;
+                break;
+                // Add more cases if you have additional cards
+            }
         }
     }
 };
