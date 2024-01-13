@@ -51,7 +51,7 @@
         title: 'PictoPath Adventures',
         menuItems: [
           { title: 'Home', path: '/' },
-          { title: 'About', path: '/about'},
+          { title: 'Story', path: '/story'},
         ],
       }
     },
