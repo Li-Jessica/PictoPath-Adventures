@@ -1,6 +1,6 @@
 <template>
     <v-app-bar
-        color="teal-darken-4"
+        color="#273c2c"
         class="min-width"
     >
       <template v-slot:image>
