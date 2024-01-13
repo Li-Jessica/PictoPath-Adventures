@@ -32,7 +32,7 @@
                     text: 'Add text', 
                     options: [
                         { title: 'Bunny', value: 'little bunny' },
-                        { title: 'Cat', value: 'lithe kitty' },
+                        { title: 'Cat', value: 'little kitty' },
                         { title: 'Dog', value: 'happy puppy' }, ], 
                     generateImageFlag: false,
                     dropdownLabel: 'Select a character'
