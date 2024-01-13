@@ -10,6 +10,7 @@
   <script>
     import StoryItem from "../components/StoryItem.vue";
     import { ref } from 'vue';
+    import cardImage from "../assets/images/banner-2.png";
     
     export default {
         components: {
@@ -20,7 +21,8 @@
             cards: [
                 { 
                     title: 'Choose your adventure type', 
-                    text: 'Add text', 
+                    text: 'Add text',
+                    image: cardImage,
                     options: [
                         { title: 'Sea Voyage', value: 'Epic sea voyage adventure'},
                         { title: 'Jungle exploration', value: 'Epic jungle exploration adventure'}],
@@ -29,7 +31,8 @@
                 },
                 { 
                     title: 'Choose your character', 
-                    text: 'Add text', 
+                    text: 'Add text',
+                    image: cardImage,
                     options: [
                         { title: 'Bunny', value: 'little bunny' },
                         { title: 'Cat', value: 'little kitty' },
@@ -40,6 +43,7 @@
                 { 
                     title: 'Pick an item for your trip', 
                     text: 'Add text', 
+                    image: cardImage,
                     options: [
                         { title: 'French fries', value: 'delicius french fries' },
                         { title: 'A lantern', value: 'a glowing lantern' },
