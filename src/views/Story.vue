@@ -9,6 +9,7 @@
   
   <script>
     import StoryItem from "../components/StoryItem.vue";
+    import { ref } from 'vue';
     
     export default {
         components: {
