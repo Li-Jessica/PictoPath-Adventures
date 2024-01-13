@@ -1,10 +1,10 @@
 <template>
     <div class="card">
       <v-progress-linear color="rie-primary-color" height="6" rounded :indeterminate="loading"></v-progress-linear>
-      <v-card-title bg-color="primary-color" class="card-header">{{ cardData.title }}</v-card-title>
+      <v-card-title class="card-header">{{ cardData.title }}</v-card-title>
       <div class="card-body">
         <div class="character-dropdown">
-          <v-select bg-color="primary-color" @change="changeSelection" v-model="selectedOption" :items="cardData.options" item-title="title" item-value="value" :label="cardData.dopdownLabel" class="mr-4"/>
+          <v-select bg-color="primary-color" v-model="selectedOption" :items="cardData.options" item-title="title" item-value="value" :label="cardData.dropdownLabel" class="mr-4"/>
         </div>
         <img :src="processedImage" alt="" />
         <p>{{ cardData.text }}</p>
@@ -12,6 +12,7 @@
             <v-btn color="primary-color" @click="generateImage">Generate Image</v-btn>
         </template>
       </div>
+      <v-btn class="ml-auto" color="primary" @click="this.$emit('next')">Next</v-btn>
     </div>
   </template>
   
@@ -23,11 +24,11 @@
     props: {
       cardData: Object
     },
-    setup(props) {
+    setup(props, { emit } ) {
       // State
       const loading = ref(false);
       const processedImage = ref('');
-      const selectedOption = ref(props.cardData.options[0].value);
+      const selectedOption = ref(props.cardData.options[0].title);
   
       // Asynchronous function to process the input and retrieve an image
       const fetchData = async () => {
@@ -60,22 +61,16 @@
       };
   
       // Watch for changes in selectedCharacter and trigger fetchData
-      watch(selectedOption, () => {
-        fetchData();
+      watch(selectedOption, (newValue) => {
+        emit('selectedOption', newValue);
+        if (props.cardData.generateImageFlag) fetchData();
       });
-  
-      // Method to handle selection change
-      const changeSelection = () => {
-        // TBD
-      };
   
       return {
         loading,
         processedImage,
         selectedOption,
-        characterOptions: props.cardData.options,
-        generateImage,
-        changeSelection
+        generateImage
       };
     }
   };
@@ -83,14 +78,14 @@
   
   <style scoped>
   .card {
-    width: 800px;
-    height: 1600px;
+    width: 1600px;
+    height: 600px;
     border: 1px solid #ccc;
     margin: 10px;
   }
   
   .card-header {
-    background-color: #3498db;
+    background-color: #2F4F4F;
     color: white;
     padding: 10px;
   }

@@ -2,7 +2,7 @@
     <div>
       <h1>Welcome to PictoPath Adventures!</h1>      
       <div>
-        <StoryItem :cardData="cards[currentCard]"/>
+        <StoryItem :cardData="cards[currentCard]" @next="goToNextCard" @selectedOption="updateAdventureState"/>
       </div>
     </div>
   </template>
@@ -12,8 +12,8 @@
     
     export default {
         components: {
-        StoryItem
-    },
+            StoryItem
+        },
     data() {
         return {
             cards: [
@@ -21,10 +21,10 @@
                     title: 'Choose your adventure type', 
                     text: 'Add text', 
                     options: [
-                        { title: 'Sea Voyage', value: 'Epic sea yoyage adventure'},
+                        { title: 'Sea Voyage', value: 'Epic sea voyage adventure'},
                         { title: 'Jungle exploration', value: 'Epic jungle exploration adventure'}],
                     generateImageFlag: false,
-                    dopdownLabel: 'Select an adventure theme'
+                    dropdownLabel: 'Select an adventure theme'
                 },
                 { 
                     title: 'Choose your character', 
@@ -34,7 +34,7 @@
                         { title: 'Cat', value: 'lithe kitty' },
                         { title: 'Dog', value: 'happy puppy' }, ], 
                     generateImageFlag: false,
-                    dopdownLabel: 'Select a character'
+                    dropdownLabel: 'Select a character'
                 },
                 { 
                     title: 'Pick an item for your trip', 
@@ -44,7 +44,7 @@
                         { title: 'A lantern', value: 'a glowing lantern' },
                         { title: 'A sun hat', value: 'a yellow straw sun hat' }, ], 
                     generateImageFlag: false,
-                    dopdownLabel: 'Select a helpful item for you adventure'
+                    dropdownLabel: 'Select a helpful item for you adventure'
                 },
             ],
             currentCard: 0
@@ -52,8 +52,10 @@
     },
     methods: {
         goToNextCard() {
-        // Logic to move to the next card
-        this.currentCard++;
+            this.currentCard++;
+        },
+        updateAdventureState(selectedOption) {
+            console.log('Selected Option in Parent:', selectedOption);
         }
     }
 };
