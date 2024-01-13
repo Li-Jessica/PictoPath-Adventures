@@ -6,7 +6,7 @@
         <div class="character-dropdown">
           <v-select bg-color="primary-color" v-model="selectedOption" :items="cardData.options" item-title="title" item-value="title" :label="cardData.dropdownLabel" class="mr-4"/>
         </div>
-        <img :src="processedImage" alt="" />
+        <img :src="cardData.image" alt="" width="300px" />
         <p>{{ cardData.text }}</p>
         <template v-if="cardData.generateImageFlag">
             <v-btn color="primary-color" @click="generateImage">Generate Image</v-btn>
