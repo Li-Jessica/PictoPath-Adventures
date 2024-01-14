@@ -8,7 +8,9 @@
           <v-select bg-color="primary-color" v-model="selectedOption" :items="cardData.options" item-title="title" item-value="title" :label="cardData.dropdownLabel" class="mr-4"/>
         </div>
         <img :src="cardData.image" class="centered-image" alt="" width="300px" />
-        <img :src="processedImage" class="centered-image" alt="" width="300px" />
+        <template v-if="cardData.generateImageFlag ">
+            <img :src="processedImage" class="centered-image" alt="" width="300px" />
+        </template>
         <p2 v-model="errorMessage"> {{ errorMessage }}</p2>
 
         <template v-if="cardData.id === 11 || cardData.id === 7">
@@ -30,6 +32,7 @@
   const selectedOption = ref('Make a selection');
   const treasureInput = ref("");
   const errorMessage = ref("");
+  const processedImage = ref('');
   
   export default {
     props: {
@@ -41,13 +44,12 @@
             this.$emit('next');
             selectedOption.value = 'Make a selection';
             errorMessage.value = "";
-            processedImage.value = ""
+            processedImage.value = "";
         }
     },
     setup( props, { emit } ) {
       // State
         const loading = ref(false);
-        const processedImage = ref('');
   
         // Asynchronous function to process the input and retrieve an image
         const fetchData = async () => {
@@ -116,7 +118,7 @@
   <style scoped>
     .card {
         width: 99%;
-        height: 600px;
+        height: 700px;
         border: 1px solid #ccc;
         margin: 10px;
         display: flex;
