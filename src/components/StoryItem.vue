@@ -121,7 +121,8 @@
     }
     
     .card-header {
-        background-color: #f8bdc4;
+        background-color: #422c54;
+        color: white;
         padding: 10px;
     }
     

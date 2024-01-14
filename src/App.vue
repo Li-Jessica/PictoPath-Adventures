@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar.vue";
 </script>
 
 <template>
-  <v-app>
+  <v-app style="background-color: #f5f3f0;">
     <!--Navigation bar seen at the top of the page-->
     <NavBar />
     <!-- v-main is needed to tell the nav bar not to cover our main content-->
