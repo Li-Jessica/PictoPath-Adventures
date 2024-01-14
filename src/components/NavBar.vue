@@ -1,11 +1,11 @@
 <template>
     <v-app-bar
-        color="#273c2c"
+        color="#422c54"
         class="min-width"
     >
       <template v-slot:image>
           <v-img
-              gradient="to top right, rgba(40,60,60,.9), rgba(40,60,60,.5)"
+              gradient="to top right, rgba(97,54,133,.9), rgba(40,60,60,.5)"
               class="custom-gradient"
           ></v-img>
       </template>

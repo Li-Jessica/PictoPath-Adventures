@@ -8,7 +8,7 @@ import '@mdi/font/css/materialdesignicons.css'
 const customTheme = {
     dark: false,
     colors: {
-        "primary-color": "#f8bdc4",
+        "primary-color": "#422c54",
         "secondary-color": "#3d6565",
     }
 }

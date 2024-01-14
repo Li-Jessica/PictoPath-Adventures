@@ -1,6 +1,7 @@
 <template>
     <div>
-      <h1>Welcome to PictoPath Adventures!</h1>      
+      <h1>Welcome to PictoPath Adventures!</h1>
+      {{ errorMessage }}     
       <div>
         <StoryItem :cardData="cards[currentCard]" :adventureState="adventureState" @next="goToNextCard" @selectedOption="updateAdventureState"/>
       </div>
@@ -11,7 +12,7 @@
     import StoryItem from "../components/StoryItem.vue";
     import { ref } from 'vue';
     import cardImage from "../assets/images/banner-2.png";
-    
+
     export default {
         components: {
             StoryItem
@@ -22,7 +23,7 @@
                 {
                     id: 0,
                     title: 'Choose your adventure type', 
-                    text: 'Add text',
+                    text: '',
                     image: cardImage,
                     options: [
                         { title: 'Sea Voyage', value: 'Epic sea voyage adventure'},
@@ -33,7 +34,7 @@
                 { 
                     id: 1,
                     title: 'Choose your character', 
-                    text: 'Add text',
+                    text: '',
                     image: cardImage,
                     options: [
                         { title: 'Bunny', value: 'little bunny' },
@@ -45,7 +46,7 @@
                 { 
                     id: 2,
                     title: 'Pick an item for your trip', 
-                    text: 'Add text', 
+                    text: '', 
                     image: cardImage,
                     options: [
                         { title: 'French fries', value: 'delicious french fries' },
@@ -201,14 +202,23 @@
             ],
             currentCard: 0,
             adventureState: ref({
-                adventureType: "voyage",
-                character: "bunny",
-                item: "a lantern"
-            })
+                adventureType: null,
+                character: null,
+                item: null
+            }),
+            errorMessage: ref(''),
         };
     },
     methods: {
         goToNextCard() {
+            this.errorMessage = "";
+            if( (this.currentCard === 0 && this.adventureState.adventureType === null) || 
+            (this.currentCard === 1 && (this.adventureState.character === null || this.adventureState.character === "Make a selection")) ||
+            (this.currentCard === 2 && (this.adventureState.item === null || this.adventureState.item === "Make a selection")) ) {
+                this.errorMessage = "Please make a selection to proceed.";
+                return;
+            }
+
             if( this.currentCard === 3 ) {
                 if( this.adventureState.adventureType === "Sea Voyage" ) {
                     this.currentCard = 4;
