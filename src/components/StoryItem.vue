@@ -31,7 +31,6 @@
       const loading = ref(false);
       const processedImage = ref('');
       const selectedOption = ref(props.cardData.options[0].title);
-      const { adventureState } = toRefs(props);
   
       // Asynchronous function to process the input and retrieve an image
       const fetchData = async () => {
@@ -39,7 +38,7 @@
   
         try {
           const inputs = {
-            prompt: `A ${adventureState.character} is havinng a grand ${adventureState.adventureType} adventure while carrying ${adventureState.item}`
+            prompt: `A ${props.adventureState.character} is havinng a grand ${props.adventureState.adventureType} adventure while carrying ${props.adventureState.item}`
           };
   
           const response = await axios.post('http://127.0.0.1:5000/run_ai', inputs);

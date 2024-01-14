@@ -74,17 +74,17 @@
         },
         updateAdventureState(selectedOption) {
             console.log('Selected Option in Parent:', selectedOption);
-            
+
             switch (this.currentCard) {
                 case 0:
-                this.adventureState.adventureType = selectedOption;
-                break;
+                    this.adventureState.adventureType = selectedOption;
+                    break;
                 case 1:
-                this.adventureState.character = selectedOption;
-                break;
+                    this.adventureState.character = selectedOption;
+                    break;
                 case 2:
-                this.adventureState.item = selectedOption;
-                break;
+                    this.adventureState.item = selectedOption;
+                    break;
             }
         }
     }
