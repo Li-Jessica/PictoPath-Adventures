@@ -3,12 +3,12 @@
       <v-progress-linear color="primary-color" height="6" rounded :indeterminate="loading"></v-progress-linear>
       <v-card-title class="card-header">{{ cardData.title }}</v-card-title>
       <div class="card-body">
+        <p>{{ cardData.text }}</p>
         <div v-if="cardData.options.length > 0" class="character-dropdown">
           <v-select bg-color="primary-color" v-model="selectedOption" :items="cardData.options" item-title="title" item-value="title" :label="cardData.dropdownLabel" class="mr-4"/>
         </div>
         <img :src="cardData.image" class="centered-image" alt="" width="300px" />
         <img :src="processedImage" class="centered-image" alt="" width="300px" />
-        <p>{{ cardData.text }}</p>
         <p2 v-model="errorMessage"> {{ errorMessage }}</p2>
 
         <template v-if="cardData.id === 11 || cardData.id === 7">
