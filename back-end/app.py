@@ -9,8 +9,8 @@ CORS(app)
 @app.route('/run_ai', methods=['POST'])
 def run_ai():
     try:
-        account_id = 'e10c9f080ad11db06ca95eb25bba9018'
-        api_token = 'oiCOVhx5LwN4TcU6HkV8o87rFGTT3-0fveWTRtUs'
+        account_id = ''
+        api_token = ''
         model = '@cf/stabilityai/stable-diffusion-xl-base-1.0'
         ai_endpoint = f'https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/{model}'
 
