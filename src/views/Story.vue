@@ -19,7 +19,8 @@
     data() {
         return {
             cards: [
-                { 
+                {
+                    id: 0,
                     title: 'Choose your adventure type', 
                     text: 'Add text',
                     image: cardImage,
@@ -30,6 +31,7 @@
                     dropdownLabel: 'Select an adventure theme'
                 },
                 { 
+                    id: 1,
                     title: 'Choose your character', 
                     text: 'Add text',
                     image: cardImage,
@@ -41,6 +43,7 @@
                     dropdownLabel: 'Select a character'
                 },
                 { 
+                    id: 2,
                     title: 'Pick an item for your trip', 
                     text: 'Add text', 
                     image: cardImage,
@@ -52,6 +55,7 @@
                     dropdownLabel: 'Select a helpful item for you adventure'
                 },
                 { 
+                    id: 3,
                     title: 'Say hello to your character!!', 
                     text: 'This is what you look like. Not bad, eh.', 
                     image: "",
@@ -60,6 +64,7 @@
                     dropdownLabel: ''
                 },
                 { 
+                    id: 4,
                     title: 'Ahoy! The start of a grand sea voyage!', //4
                     text: 
                     'The sea voyage commenced under the brilliant rays of a warm, sunlit day. \
@@ -74,6 +79,7 @@
                     dropdownLabel: ''
                 },
                 { 
+                    id: 5,
                     title: 'Harmony amidst the great tempest', 
                     text: 
                     'As the storm unleashed its fury, rain lashed against the ship, and the vessel pitched and rolled with the churning waves. \
@@ -88,6 +94,7 @@
                     dropdownLabel: ''
                 },
                 { 
+                    id: 6,
                     title: 'Land ho! The Island Expedition', 
                     text: 
                     'Eventually, after enduring the great storm, the clouds began to disperse, and the sun reappeared, \
@@ -100,19 +107,21 @@
                     dropdownLabel: ''
                 },
                 { 
+                    id: 7,
                     title: 'Seafarer\'s Delight: Riches Beyond the Waves', // 7
                     text: 
                     'The culmination of your epic voyage was marked by the discovery of the long-lost treasure. \
                     A chest filled with gleaming jewels, ancient artifacts, and secrets untold lay before you. \
                     As you and your companions reveled in the triumph, a question arose – what form would your coveted treasure take? \
                     Would it be a cache of enchanted artifacts, a trove of gold and jewels, or perhaps something entirely unexpected? \
-                    The choice is yours, as the spoils of your daring adventure await your decision. What treasure do you envision, dear adventurer?', 
+                    The choice is yours, as the spoils of your daring adventure await your decision.', 
                     image: "",
                     options: [], 
                     generateImageFlag: true,
                     dropdownLabel: ''
                 },
                 { 
+                    id: 8,
                     title: 'Rainfall Reckoning: The start of jungle adventure!', //8
                     text: 
                     'The boat sliced through the murky waters as you and your companions embarked on an epic jungle expedition. \
@@ -131,6 +140,7 @@
                     dropdownLabel: ''
                 },
                 { 
+                    id: 9,
                     title: 'Canopy Calm: Stories and Slumber in the Jungle\'s Embrace', 
                     text: 
                     'Now that you have found some shelter, it looks like the rain will be going on for a while.\
@@ -145,6 +155,7 @@
                     dropdownLabel: ''
                 },
                 { 
+                    id: 10,
                     title: 'Trail of Treasures: Navigating the Jungle\'s Hidden Secrets', 
                     text: 
                     'Emerging from the embrace of the storm, you and your companions carried on through the revitalized jungle, \
@@ -162,6 +173,7 @@
                     dropdownLabel: ''
                 },
                 { 
+                    id: 11,
                     title: 'The Jewel Unveiled: Triumph and Revelry in Jungle Shadows', //11
                     text: 
                     'Following the trail of clues through the dense jungle, your expedition reached a secluded clearing. \
@@ -170,19 +182,20 @@
                     The treasure revealed itself to be a trove of natural wonders and ancient artifacts, nestled amidst the roots of an enormous, ancient tree. \
                     The air was thick with a sense of accomplishment as your companions marveled at the eclectic mix of jewels, mysterious relics, and rare flora.\
                     As you and your companions reveled in the triumph of your expedition, you couldn\'t help but wonder: What should the treasure be? It could be a legendary \
-                    artifact, a chest filled with jewels, or something entirely unique. What kind of treasure would you like to find at the heart of the ancient temple?', 
+                    artifact, a chest filled with jewels, or something entirely unique.', 
                     image: "",
                     options: [], 
                     generateImageFlag: true,
                     dropdownLabel: ''
                 },
                 { 
-                    title: 'The End!', //11
+                    id: 12,
+                    title: 'The End!', //12
                     text: 
                     'This is the end of your adventure.', 
                     image: "",
                     options: [], 
-                    generateImageFlag: true,
+                    generateImageFlag: false,
                     dropdownLabel: ''
                 },
             ],

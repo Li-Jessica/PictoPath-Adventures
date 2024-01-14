@@ -9,6 +9,12 @@
         <img :src="cardData.image" alt="" width="300px" />
         <img :src="processedImage" alt="" width="300px" />
         <p>{{ cardData.text }}</p>
+        <p2 v-model="errorMessage"> {{ errorMessage }}</p2>
+
+        <template v-if="cardData.id === 11 || cardData.id === 7">
+            <v-text-field label="What treasure do you envision, dear adventurer?" v-model="treasureInput" bg-color="primary-color" class="mr-3"></v-text-field>
+        </template>
+        
         <template v-if="cardData.generateImageFlag">
             <v-btn color="primary-color" @click="generateImage">Generate Image</v-btn>
         </template>
@@ -22,6 +28,7 @@
   import axios from 'axios';
   
   const selectedOption = ref('Make a selection');
+  const treasureInput = ref("");
   
   export default {
     props: {
@@ -32,29 +39,44 @@
         handleNext() {
             this.$emit('next');
             selectedOption.value = 'Make a selection';
+            errorMessage.value = "";
         }
     },
     setup( props, { emit } ) {
       // State
         const loading = ref(false);
         const processedImage = ref('');
+        const errorMessage = ref("");
   
         // Asynchronous function to process the input and retrieve an image
         const fetchData = async () => {
             loading.value = true;
+            errorMessage.value = "";
     
             try {
-                const inputs = {
-                    prompt: `A ${props.adventureState.character} is havinng a grand ${props.adventureState.adventureType} adventure while carrying ${props.adventureState.item}`
-                };
+                let inputs;
+                if( props.cardData.id === 11 || props.cardData.id === 7 ) {
+                    inputs = {
+                        prompt: `A ${treasureInput.value} treasure chest.`
+                    };
+
+                } else {
+                    inputs = {
+                        prompt: `A ${props.adventureState.character} is havinng a grand ${props.adventureState.adventureType} adventure while carrying ${props.adventureState.item}`
+                    };
+                }
         
                 const response = await axios.post('http://127.0.0.1:5000/run_ai', inputs);
         
                 // Assuming the Flask backend sends the image data in the response
                 const base64Image = response.data.image_data;
-                processedImage.value = `data:image/png;base64,${base64Image}`;
-        
-                console.log("Image generated");
+
+                if( base64Image !== undefined ) {
+                    processedImage.value = `data:image/png;base64,${base64Image}`;
+                } else {
+                    errorMessage.value = "Cloudflare API is currently down.";
+                }
+            
             } catch (error) {
                 console.error('Error processing image. Is the back-end running? ', error);
             } finally {
@@ -82,7 +104,9 @@
             loading,
             processedImage,
             selectedOption,
-            generateImage
+            generateImage,
+            treasureInput, 
+            errorMessage
         };
     }
   };
