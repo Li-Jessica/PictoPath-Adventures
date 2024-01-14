@@ -11,7 +11,16 @@
   <script>
     import StoryItem from "../components/StoryItem.vue";
     import { ref } from 'vue';
+
     import cardImage from "../assets/images/banner-2.png";
+    import adventurerBunny from "../assets/images/adventurer-bunny.jpeg";
+    import junggleLeaves from "../assets/images/jungle-leaves.jpeg";
+    import book from "../assets/images/book.jpeg";
+    import lantern from "../assets/images/lantern.jpg";
+    import seaVoyage from "../assets/images/sea-voyage.jpg";
+    import seaVoyageStorm from "../assets/images/sea-voyage-storm.jpg";
+    import shore from "../assets/images/shore.jpg";
+    import jungle from "../assets/images/jungle.jpg";
 
     export default {
         components: {
@@ -35,7 +44,7 @@
                     id: 1,
                     title: 'Choose your character', 
                     text: '',
-                    image: cardImage,
+                    image: adventurerBunny,
                     options: [
                         { title: 'Bunny', value: 'little bunny' },
                         { title: 'Cat', value: 'little kitty' },
@@ -47,7 +56,7 @@
                     id: 2,
                     title: 'Pick an item for your trip', 
                     text: '', 
-                    image: cardImage,
+                    image: lantern,
                     options: [
                         { title: 'French fries', value: 'delicious french fries' },
                         { title: 'A lantern', value: 'a glowing lantern' },
@@ -58,7 +67,7 @@
                 { 
                     id: 3,
                     title: 'Say hello to your character!!', 
-                    text: 'This is what you look like. Not bad, eh.', 
+                    text: 'This is what you look like. Not bad, eh ;)', 
                     image: "",
                     options: [], 
                     generateImageFlag: true,
@@ -74,7 +83,7 @@
                     The atmosphere buzzed with anticipation, and the rhythmic sound of the waves provided a \
                     soothing backdrop to the beginning of your maritime journey. Little did you know that the \
                     tranquility of the day would soon be challenged by the twists of fate on the open sea.', 
-                    image: "",
+                    image: seaVoyage,
                     options: [], 
                     generateImageFlag: false,
                     dropdownLabel: ''
@@ -86,7 +95,7 @@
                     'As the storm unleashed its fury, rain lashed against the ship, and the vessel pitched and rolled with the churning waves. \
                     Amidst the chaos, you faced a crucial decision. Would you rally your companions to sing sea shanties, \
                     raising the spirits on board with melodic tunes, or opt for a more relaxed approach by engaging in lively card games to distract from the tempestuous conditions?', 
-                    image: "",
+                    image: seaVoyageStorm,
                     options: [
                         { title: 'Sing sea shanties', value: 'sing sea shanties' },
                         { title: 'Play some card games', value: 'play card games' }
@@ -102,7 +111,7 @@
                     casting a warm glow over the tranquil sea. With relief, you continued your journey and arrived \
                     at a mysterious island. Consulting your weathered treasure map, you and your companions eagerly set out on a new quest, \
                     exploring the uncharted terrain, deciphering clues, and overcoming challenges in pursuit of the hidden treasure.', 
-                    image: "",
+                    image: shore,
                     options: [], 
                     generateImageFlag: false,
                     dropdownLabel: ''
@@ -132,7 +141,7 @@
                     A debate ensued about seeking shelter under a massive, ancient leaf or finding refuge in a nearby cave. \
                     The decision was crucial, and as the leader of the expedition, you had to choose quickly. \
                     What would it be - the giant leaves or the cave?', 
-                    image: "",
+                    image: junggleLeaves,
                     options: [
                         { title: 'Hide under the leaves', value: 'hide under the big jungle leaves'},
                         { title: 'Hide in the cave', value: 'hide in the jungle cave'}
@@ -147,7 +156,7 @@
                     'Now that you have found some shelter, it looks like the rain will be going on for a while.\
                     While waiting for the rain to pass, you and your companions sought solace in various activities.\ Some proposed reading a book to pass the time, while others preferred a quick nap. \
                     The decision was yours to make. What would you suggest to your companions - an immersive book or a rejuvenating nap?',
-                    image: "",
+                    image: book,
                     options: [
                         { title: 'Read a book', value: 'read a book'},
                         { title: 'Take a nap', value: 'take a nap'}
@@ -168,7 +177,7 @@
                      murmur of waterfalls accompanied your expedition. How did the jungle\'s transformation after the storm impact your quest, \
                      and what newfound wonders did your companions discover amid the refreshed setting? The unfolding chapters of your adventure \
                      painted a vivid picture of resilience and exploration in the heart of the rejuvenated jungle.',
-                    image: "",
+                    image: jungle,
                     options: [], 
                     generateImageFlag: false,
                     dropdownLabel: ''
