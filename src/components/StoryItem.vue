@@ -6,8 +6,8 @@
         <div v-if="cardData.options.length > 0" class="character-dropdown">
           <v-select bg-color="primary-color" v-model="selectedOption" :items="cardData.options" item-title="title" item-value="title" :label="cardData.dropdownLabel" class="mr-4"/>
         </div>
-        <img :src="cardData.image" alt="" width="300px" />
-        <img :src="processedImage" alt="" width="300px" />
+        <img :src="cardData.image" class="centered-image" alt="" width="300px" />
+        <img :src="processedImage" class="centered-image" alt="" width="300px" />
         <p>{{ cardData.text }}</p>
         <p2 v-model="errorMessage"> {{ errorMessage }}</p2>
 
@@ -19,7 +19,7 @@
             <v-btn color="primary-color" @click="generateImage">Generate Image</v-btn>
         </template>
       </div>
-      <v-btn class="ml-auto" color="primary-color" @click="handleNext">Next</v-btn>
+      <v-btn class="ml-auto mr-2 mb-2" color="primary-color" @click="handleNext">Next</v-btn>
     </div>
   </template>
   
@@ -118,6 +118,7 @@
         height: 600px;
         border: 1px solid #ccc;
         margin: 10px;
+        display: flex;
     }
     
     .card-header {
@@ -134,9 +135,9 @@
         margin-bottom: 10px;
     }
     
-    img {
-        max-width: 100%;
-        max-height: 100%;
+    .centered-image {
+        display: block;
+        margin: 0 auto;
     }
   </style>
   
