@@ -2,7 +2,7 @@
     <div>
       <h1>Welcome to PictoPath Adventures!</h1>      
       <div>
-        <StoryItem :cardData="cards[currentCard]" @next="goToNextCard" @selectedOption="updateAdventureState"/>
+        <StoryItem :cardData="cards[currentCard]" :adventureState="adventureState" @next="goToNextCard" @selectedOption="updateAdventureState"/>
       </div>
     </div>
   </template>
@@ -51,12 +51,20 @@
                     generateImageFlag: false,
                     dropdownLabel: 'Select a helpful item for you adventure'
                 },
+                { 
+                    title: 'Say hello to your character!!', 
+                    text: 'This is what you look like. Not bad, eh.', 
+                    image: "",
+                    options: [], 
+                    generateImageFlag: true,
+                    dropdownLabel: ''
+                },
             ],
             currentCard: 0,
             adventureState: ref({
-                adventureType: null,
-                character: null,
-                item: null
+                adventureType: "voyage",
+                character: "bunny",
+                item: "a lantern"
             })
         };
     },
@@ -66,7 +74,7 @@
         },
         updateAdventureState(selectedOption) {
             console.log('Selected Option in Parent:', selectedOption);
-            // Update the adventureState based on the current card
+            
             switch (this.currentCard) {
                 case 0:
                 this.adventureState.adventureType = selectedOption;
@@ -77,7 +85,6 @@
                 case 2:
                 this.adventureState.item = selectedOption;
                 break;
-                // Add more cases if you have additional cards
             }
         }
     }

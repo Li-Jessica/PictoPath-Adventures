@@ -3,10 +3,11 @@
       <v-progress-linear color="primary-color" height="6" rounded :indeterminate="loading"></v-progress-linear>
       <v-card-title class="card-header">{{ cardData.title }}</v-card-title>
       <div class="card-body">
-        <div class="character-dropdown">
+        <div v-if="cardData.options.length > 0" class="character-dropdown">
           <v-select bg-color="primary-color" v-model="selectedOption" :items="cardData.options" item-title="title" item-value="title" :label="cardData.dropdownLabel" class="mr-4"/>
         </div>
         <img :src="cardData.image" alt="" width="300px" />
+        <img :src="processedImage" alt="" width="300px" />
         <p>{{ cardData.text }}</p>
         <template v-if="cardData.generateImageFlag">
             <v-btn color="primary-color" @click="generateImage">Generate Image</v-btn>
@@ -17,27 +18,28 @@
   </template>
   
   <script>
-  import { ref, watch } from 'vue';
+  import { ref, watch, toRefs } from 'vue';
   import axios from 'axios';
   
   export default {
     props: {
-      cardData: Object
+      cardData: Object,
+      adventureState: Object
     },
     setup(props, { emit } ) {
       // State
       const loading = ref(false);
       const processedImage = ref('');
       const selectedOption = ref(props.cardData.options[0].title);
+      const { adventureState } = toRefs(props);
   
       // Asynchronous function to process the input and retrieve an image
       const fetchData = async () => {
-        // Show loading spinner
         loading.value = true;
   
         try {
           const inputs = {
-            prompt: `rainbow ${selectedOption} on a boat in a rain forest in sun hats`
+            prompt: `A ${adventureState.character} is havinng a grand ${adventureState.adventureType} adventure while carrying ${adventureState.item}`
           };
   
           const response = await axios.post('http://127.0.0.1:5000/run_ai', inputs);
@@ -50,7 +52,6 @@
         } catch (error) {
           console.error('Error processing image. Is the back-end running? ', error);
         } finally {
-          // Hide loading spinner
           loading.value = false;
         }
       };
@@ -78,7 +79,7 @@
   
   <style scoped>
   .card {
-    width: 1600px;
+    width: 100%;
     height: 600px;
     border: 1px solid #ccc;
     margin: 10px;
