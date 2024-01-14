@@ -41,6 +41,7 @@
             this.$emit('next');
             selectedOption.value = 'Make a selection';
             errorMessage.value = "";
+            processedImage.value = ""
         }
     },
     setup( props, { emit } ) {
