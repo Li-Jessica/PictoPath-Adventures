@@ -60,7 +60,7 @@
                     dropdownLabel: ''
                 },
                 { 
-                    title: 'Ahoy! The start of a grand sea voyage!', 
+                    title: 'Ahoy! The start of a grand sea voyage!', //4
                     text: 
                     'The sea voyage commenced under the brilliant rays of a warm, sunlit day. \
                     The ship gracefully cut through the calm waters, and a gentle breeze carried the scent of salt and adventure. \
@@ -100,7 +100,7 @@
                     dropdownLabel: ''
                 },
                 { 
-                    title: 'Seafarer\'s Delight: Riches Beyond the Waves', 
+                    title: 'Seafarer\'s Delight: Riches Beyond the Waves', // 7
                     text: 
                     'The culmination of your epic voyage was marked by the discovery of the long-lost treasure. \
                     A chest filled with gleaming jewels, ancient artifacts, and secrets untold lay before you. \
@@ -113,7 +113,7 @@
                     dropdownLabel: ''
                 },
                 { 
-                    title: 'Rainfall Reckoning: The start of jungle adventure!', 
+                    title: 'Rainfall Reckoning: The start of jungle adventure!', //8
                     text: 
                     'The boat sliced through the murky waters as you and your companions embarked on an epic jungle expedition. \
                     The dense greenery of the rainforest loomed ahead, promising mystery and adventure. However, a few hours into the journey, \
@@ -162,7 +162,7 @@
                     dropdownLabel: ''
                 },
                 { 
-                    title: 'The Jewel Unveiled: Triumph and Revelry in Jungle Shadows', 
+                    title: 'The Jewel Unveiled: Triumph and Revelry in Jungle Shadows', //11
                     text: 
                     'Following the trail of clues through the dense jungle, your expedition reached a secluded clearing. \
                     The treasure, hidden for centuries, was finally within your grasp. \
@@ -171,6 +171,15 @@
                     The air was thick with a sense of accomplishment as your companions marveled at the eclectic mix of jewels, mysterious relics, and rare flora.\
                     As you and your companions reveled in the triumph of your expedition, you couldn\'t help but wonder: What should the treasure be? It could be a legendary \
                     artifact, a chest filled with jewels, or something entirely unique. What kind of treasure would you like to find at the heart of the ancient temple?', 
+                    image: "",
+                    options: [], 
+                    generateImageFlag: true,
+                    dropdownLabel: ''
+                },
+                { 
+                    title: 'The End!', //11
+                    text: 
+                    'This is the end of your adventure.', 
                     image: "",
                     options: [], 
                     generateImageFlag: true,
@@ -187,7 +196,18 @@
     },
     methods: {
         goToNextCard() {
-            this.currentCard++;
+            if( this.currentCard === 3 ) {
+                if( this.adventureState.adventureType === "Sea Voyage" ) {
+                    this.currentCard = 4;
+                } else {
+                    this.currentCard = 8;
+                }
+            } else if( this.currentCard === 11 || this.currentCard === 7 ) {
+                this.currentCard = 12;
+            } else if( this.currentCard !== 12 ) {
+                this.currentCard++;
+            }
+
         },
         updateAdventureState(selectedOption) {
             console.log('Selected Option in Parent:', selectedOption);

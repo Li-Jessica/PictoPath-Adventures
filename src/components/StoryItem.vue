@@ -13,93 +13,105 @@
             <v-btn color="primary-color" @click="generateImage">Generate Image</v-btn>
         </template>
       </div>
-      <v-btn class="ml-auto" color="primary-color" @click="this.$emit('next')">Next</v-btn>
+      <v-btn class="ml-auto" color="primary-color" @click="handleNext">Next</v-btn>
     </div>
   </template>
   
   <script>
-  import { ref, watch, toRefs } from 'vue';
+  import { ref, watch, onMounted } from 'vue';
   import axios from 'axios';
+  
+  const selectedOption = ref('Make a selection');
   
   export default {
     props: {
       cardData: Object,
       adventureState: Object
     },
-    setup(props, { emit } ) {
-      // State
-      const loading = ref(false);
-      const processedImage = ref('');
-      const selectedOption = ref(props.cardData.options[0].title);
-  
-      // Asynchronous function to process the input and retrieve an image
-      const fetchData = async () => {
-        loading.value = true;
-  
-        try {
-          const inputs = {
-            prompt: `A ${props.adventureState.character} is havinng a grand ${props.adventureState.adventureType} adventure while carrying ${props.adventureState.item}`
-          };
-  
-          const response = await axios.post('http://127.0.0.1:5000/run_ai', inputs);
-  
-          // Assuming the Flask backend sends the image data in the response
-          const base64Image = response.data.image_data;
-          processedImage.value = `data:image/png;base64,${base64Image}`;
-  
-          console.log("Image generated");
-        } catch (error) {
-          console.error('Error processing image. Is the back-end running? ', error);
-        } finally {
-          loading.value = false;
+    methods: {
+        handleNext() {
+            this.$emit('next');
+            selectedOption.value = 'Make a selection';
         }
-      };
+    },
+    setup( props, { emit } ) {
+      // State
+        const loading = ref(false);
+        const processedImage = ref('');
   
-      // Method to generate image
-      const generateImage = () => {
-        fetchData();
-      };
-  
-      // Watch for changes in selectedCharacter and trigger fetchData
-      watch(selectedOption, (newValue) => {
-        emit('selectedOption', newValue);
-        if (props.cardData.generateImageFlag) fetchData();
-      });
-  
-      return {
-        loading,
-        processedImage,
-        selectedOption,
-        generateImage
-      };
+        // Asynchronous function to process the input and retrieve an image
+        const fetchData = async () => {
+            loading.value = true;
+    
+            try {
+                const inputs = {
+                    prompt: `A ${props.adventureState.character} is havinng a grand ${props.adventureState.adventureType} adventure while carrying ${props.adventureState.item}`
+                };
+        
+                const response = await axios.post('http://127.0.0.1:5000/run_ai', inputs);
+        
+                // Assuming the Flask backend sends the image data in the response
+                const base64Image = response.data.image_data;
+                processedImage.value = `data:image/png;base64,${base64Image}`;
+        
+                console.log("Image generated");
+            } catch (error) {
+                console.error('Error processing image. Is the back-end running? ', error);
+            } finally {
+                loading.value = false;
+            }
+        };
+    
+        // Method to generate image
+        const generateImage = () => {
+            fetchData();
+        };
+    
+        // Watch for changes in selectedCharacter and trigger fetchData
+        watch(selectedOption, (newValue) => {
+            emit('selectedOption', newValue);
+        });
+
+        // Reset selectedOption when the component is mounted
+        onMounted(() => {
+            selectedOption.value = 'Make a selection';
+            if (props.cardData.generateImageFlag) fetchData();
+        });
+    
+        return {
+            loading,
+            processedImage,
+            selectedOption,
+            generateImage
+        };
     }
   };
   </script>
   
   <style scoped>
-  .card {
-    width: 100%;
-    height: 600px;
-    border: 1px solid #ccc;
-    margin: 10px;
-  }
-  
-  .card-header {
-    background-color: #f8bdc4;
-    padding: 10px;
-  }
-  
-  .card-body {
-    padding: 20px;
-  }
-  
-  .character-dropdown {
-    margin-bottom: 10px;
-  }
-  
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
+    .card {
+        width: 99%;
+        height: 600px;
+        border: 1px solid #ccc;
+        margin: 10px;
+    }
+    
+    .card-header {
+        background-color: #f8bdc4;
+        padding: 10px;
+    }
+    
+    .card-body {
+        padding: 20px;
+    }
+    
+    .character-dropdown {
+        margin-bottom: 10px;
+    }
+    
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
   </style>
   
