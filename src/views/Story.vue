@@ -45,7 +45,7 @@
                     text: 'Add text', 
                     image: cardImage,
                     options: [
-                        { title: 'French fries', value: 'delicius french fries' },
+                        { title: 'French fries', value: 'delicious french fries' },
                         { title: 'A lantern', value: 'a glowing lantern' },
                         { title: 'A sun hat', value: 'a yellow straw sun hat' }, ], 
                     generateImageFlag: false,
@@ -80,7 +80,10 @@
                     Amidst the chaos, you faced a crucial decision. Would you rally your companions to sing sea shanties, \
                     raising the spirits on board with melodic tunes, or opt for a more relaxed approach by engaging in lively card games to distract from the tempestuous conditions?', 
                     image: "",
-                    options: [], 
+                    options: [
+                        { title: 'Sing sea shanties', value: 'sing sea shanties' },
+                        { title: 'Play some card games', value: 'play card games' }
+                    ], 
                     generateImageFlag: false,
                     dropdownLabel: ''
                 },
@@ -120,7 +123,10 @@
                     The decision was crucial, and as the leader of the expedition, you had to choose quickly. \
                     What would it be - the giant leaves or the cave?', 
                     image: "",
-                    options: [], 
+                    options: [
+                        { title: 'Hide under the leaves', value: 'hide under the big jungle leaves'},
+                        { title: 'Hide in the cave', value: 'hide in the jungle cave'}
+                    ], 
                     generateImageFlag: false,
                     dropdownLabel: ''
                 },
@@ -131,20 +137,25 @@
                     While waiting for the rain to pass, you and your companions sought solace in various activities.\ Some proposed reading a book to pass the time, while others preferred a quick nap. \
                     The decision was yours to make. What would you suggest to your companions - an immersive book or a rejuvenating nap?',
                     image: "",
-                    options: [], 
+                    options: [
+                        { title: 'Read a book', value: 'read a book'},
+                        { title: 'Take a nap', value: 'take a nap'}
+                    ], 
                     generateImageFlag: false,
                     dropdownLabel: ''
                 },
                 { 
                     title: 'Trail of Treasures: Navigating the Jungle\'s Hidden Secrets', 
                     text: 
-                    'The storm eventually subsided, leaving behind a refreshed jungle. With the treasure map in hand, \
-                    you and your companions resumed your journey deeper into the heart of the rainforest. The map led \
-                    you through thick vegetation, across winding rivers, and over ancient stone formations. \
-                    Your teamwork and determination were put to the test as you followed the clues that would guide you to the long-lost treasure. \
-                    As you trekked through the jungle, encountering exotic wildlife and overcoming various challenges, the anticipation built. \
-                    The dense foliage gradually gave way to an open clearing, revealing an ancient temple ruins. According to the map, \
-                    the treasure lay hidden within. What strategy would you employ to navigate the temple ruins and reach the coveted prize?',
+                    'Emerging from the embrace of the storm, you and your companions carried on through the revitalized jungle, \
+                    armed with the ancient treasure map. The air was charged with the earthy scent of rain-soaked soil, and the once-muted colors \
+                    of the rainforest burst forth in vibrant hues. Sunlight filtered through the canopy, casting enchanting patterns on the damp foliage.\
+                    Following the intricate clues on the map, your group weaved through the now-drenched underbrush and crossed crystal-clear streams \
+                    formed by the recent downpour. Each step resonated with the renewed spirit of adventure, the post-storm jungle revealing a tapestry of glistening leaves and iridescent insects.\
+                    The map, now cradled in your hands, guided your companions with a promise of hidden wonders. The journey became a dance with nature, as the sounds of exotic birds and the distant\
+                     murmur of waterfalls accompanied your expedition. How did the jungle\'s transformation after the storm impact your quest, \
+                     and what newfound wonders did your companions discover amid the refreshed setting? The unfolding chapters of your adventure \
+                     painted a vivid picture of resilience and exploration in the heart of the rejuvenated jungle.',
                     image: "",
                     options: [], 
                     generateImageFlag: false,
