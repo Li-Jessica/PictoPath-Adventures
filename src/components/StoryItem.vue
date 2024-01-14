@@ -29,6 +29,7 @@
   
   const selectedOption = ref('Make a selection');
   const treasureInput = ref("");
+  const errorMessage = ref("");
   
   export default {
     props: {
@@ -46,7 +47,6 @@
       // State
         const loading = ref(false);
         const processedImage = ref('');
-        const errorMessage = ref("");
   
         // Asynchronous function to process the input and retrieve an image
         const fetchData = async () => {
