@@ -32,7 +32,13 @@
                 {
                     id: 0,
                     title: 'Choose your adventure type', 
-                    text: '',
+                    text: 'Welcome to PictoPath Adventures!\
+                    Embark on an exhilarating journey with our interactive story AI application, where you have the power to shape your destiny. \
+                    Choose between two captivating stories that promise adventure beyond your wildest dreams. \
+                    Dive into the vast unknown with an epic sea voyage, where the boundless horizon beckons, and the salty breeze whispers secrets \
+                    of undiscovered lands. Alternatively, immerse yourself in the heart of the untamed wilderness with a jungle exploration adventure, \
+                    where every step unveils the mysteries of ancient ruins and hidden treasures. \
+                    The choice is yours, and the adventure begins with a single click. Are you ready to chart your course and experience the thrill of a lifetime?',
                     image: cardImage,
                     options: [
                         { title: 'Sea Voyage', value: 'Epic sea voyage adventure'},
@@ -43,7 +49,11 @@
                 { 
                     id: 1,
                     title: 'Choose your character', 
-                    text: '',
+                    text: 'Congratulations on selecting your chosen adventure! Now, it\'s time to add a personal touch to your journey. \
+                    Before you set sail on your epic sea voyage or delve into the heart of the jungle, pick a character to accompany\
+                     you on this unforgettable quest. Will you be guided by the agility and curiosity of a bunny, the loyal and \
+                     adventurous spirit of a dog, or the mysterious and independent nature of a cat? The fate of your expedition lies \
+                     not only in the choices you make but also in the companionship you keep. Select your character wisely, and let the adventure with your newfound companion begin!',
                     image: adventurerBunny,
                     options: [
                         { title: 'Bunny', value: 'little bunny' },
@@ -55,7 +65,12 @@
                 { 
                     id: 2,
                     title: 'Pick an item for your trip', 
-                    text: '', 
+                    text: 
+                    'With your chosen character by your side, it\'s time to pack a crucial item for your upcoming adventure. \
+                    Will you bring the comfort of familiar and tasty French fries, adding a delightful snack to your journey? \
+                    Alternatively, you might opt for a lantern, illuminating the path ahead and revealing hidden mysteries in the shadows. \
+                    Or, perhaps, shield yourself from the elements with a stylish sun hat, providing both protection and a touch of flair. \
+                    The choice is yours – select your item wisely, and let the essence of your chosen possession enhance the unfolding tale of your epic sea voyage or jungle exploration. The adventure awaits!', 
                     image: lantern,
                     options: [
                         { title: 'French fries', value: 'delicious french fries' },
@@ -202,7 +217,7 @@
                     id: 12,
                     title: 'The End!', //12
                     text: 
-                    'This is the end of your adventure.', 
+                    'This is the end of your adventure. Rest easy and until next time dear adventurer!', 
                     image: "",
                     options: [], 
                     generateImageFlag: false,
