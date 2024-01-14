@@ -21,6 +21,9 @@
     import seaVoyageStorm from "../assets/images/sea-voyage-storm.jpg";
     import shore from "../assets/images/shore.jpg";
     import jungle from "../assets/images/jungle.jpg";
+    import adventurer from "../assets/images/adventurer-default.jpg";
+    import treasure from "../assets/images/treasure.jpg";
+    import resting from "../assets/images/resting-adventurers.png";
 
     export default {
         components: {
@@ -83,7 +86,7 @@
                     id: 3,
                     title: 'Say hello to your character!!', 
                     text: 'This is what you look like. Not bad, eh ;)', 
-                    image: "",
+                    image: adventurer,
                     options: [], 
                     generateImageFlag: true,
                     dropdownLabel: ''
@@ -140,7 +143,7 @@
                     As you and your companions reveled in the triumph, a question arose – what form would your coveted treasure take? \
                     Would it be a cache of enchanted artifacts, a trove of gold and jewels, or perhaps something entirely unexpected? \
                     The choice is yours, as the spoils of your daring adventure await your decision.', 
-                    image: "",
+                    image: treasure,
                     options: [], 
                     generateImageFlag: true,
                     dropdownLabel: ''
@@ -208,7 +211,7 @@
                     The air was thick with a sense of accomplishment as your companions marveled at the eclectic mix of jewels, mysterious relics, and rare flora.\
                     As you and your companions reveled in the triumph of your expedition, you couldn\'t help but wonder: What should the treasure be? It could be a legendary \
                     artifact, a chest filled with jewels, or something entirely unique.', 
-                    image: "",
+                    image: treasure,
                     options: [], 
                     generateImageFlag: true,
                     dropdownLabel: ''
@@ -218,7 +221,7 @@
                     title: 'The End!', //12
                     text: 
                     'This is the end of your adventure. Rest easy and until next time dear adventurer!', 
-                    image: "",
+                    image: resting,
                     options: [], 
                     generateImageFlag: false,
                     dropdownLabel: ''
