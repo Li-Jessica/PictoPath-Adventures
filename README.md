@@ -1,11 +1,14 @@
-# PictoPath Adventures - SheHacks+ 8 Project
+# [WINNER] PictoPath Adventures
+## 🎉 Winner of SheHacks+ 8 – MLH: Best AI Application Built with Cloudflare 🎉
 <a href="https://devpost.com/software/uwu-yjqtrv">Link to Devpost!</a>
+
+<a href="https://docs.google.com/presentation/d/1gp433lcycIWKKMnzXZvrV3DzYLL6V3-RipcjJTPsS5k/edit?usp=sharing">Link to Presentation Slides!</a>
 
 <img src="src/assets/images/banner-2.png" height="500px">
 
 Image generated with Stability AI's Stable Diffusion via CloudFlare's Workers AI. 
 
-## Tech & Tools 💻
+## 💻 Tech & Tools 💻
 ### Frontend
 ![javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![vue](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
@@ -17,15 +20,15 @@ Image generated with Stability AI's Stable Diffusion via CloudFlare's Workers AI
 ![CloudFlare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 
-## Inspiration 💡
+## 💡 Inspiration 💡
 Our project was sparked by a previous idea we explored earlier this year, revolving around the utilization of Stability AI's Stable Diffusion to generate images for a software architecture project. Although we initially set that concept aside, the introduction of CloudFlare's Workers AI provided a fresh opportunity to revisit and implement it. The intuitive functionality of Workers AI streamlined access to various machine learning models, transforming our initial inspiration into a tangible reality. 
 
 Plus, we wanted to have fun and immerse ourselves into the heart of SheHacks+ 8's theme this year! 
 
-## What it does 🌟
+## 🌟 What it does 🌟
 Introducing PictoPath (*picture-to-path*), where you craft your unique adventure! Harnessing the power of CloudFlare's Workers AI text-to-image models, users can embark on a personalized journey, choosing between a captivating sea voyage or an enthralling jungle expedition in pursuit of hidden treasure. Immerse yourself in an interactive choose-your-own adventure story, where every decision—from character traits to the paths taken—shapes the unfolding narrative. PictoPath invites users to navigate a world of possibilities and uncover the excitement that lies within their chosen path.
 
-## Project Setup and Pre-requisites ✅
+## ✅ Project Setup and Pre-requisites ✅
 Prerequisites include Python 3.7+ and npm version 10.2+. The known compatible versions used include Python 3.12 and npm 10.2.4. 
 
 ### Required Packages
@@ -79,7 +82,7 @@ Furthermore, we faced difficulties with a GoDaddy coupon domain, as it turned ou
 </details>
 
 <details>
-<summary>Accomplishments that we're proud of 💪</summary>
+<summary> Accomplishments that we're proud of 💪</summary>
 Our team takes pride in the successful completion of a full-stack application, showcasing our proficiency in both frontend and backend development to create a comprehensive and cohesive user experience.
 
 Implementing an auto-deployment system marked a significant accomplishment for our project, streamlining the deployment process and ensuring that any new commits to the main branch are automatically reflected in the live application. This not only enhances efficiency but also allows us to swiftly integrate new features and improvements.
@@ -92,7 +95,7 @@ Finally, Jessica's successful initiation into Vue.js marked a noteworthy accompl
 </details>
 
 <details>
-<summary>What we learned 🤔</summary>
+<summary> What we learned 🤔</summary>
 Throughout the development of our interactive story AI application, our team gleaned valuable insights:
 
 - Recognizing the significance of having a well-defined plan and vision became evident as it provided a solid foundation for our project, guiding our efforts and ensuring a cohesive end result.
@@ -113,7 +116,7 @@ Looking ahead, our team envisions expanding the richness of our interactive stor
 In the pursuit of continuous improvement, our next steps also involve optimizing the user experience by focusing on faster image generation. We are committed to enhancing the efficiency of our application, ensuring that users can enjoy seamless and prompt responses as they navigate through their chosen adventures. In addition, we would also like to look at other forms of storage such as Redis Cloud of caching and additional data storage for images (such as MySQL) to improve performance and scalability. 
 </details>
 
-## Screenshots of The Application 📷
+## 📷 Screenshots of The Application 📷
 ### Horizontal navigation bar becomes a vertical stack to demonstrate responsiveness:
 ![sdf](src/assets/images/responsive-navbar.png)
 
